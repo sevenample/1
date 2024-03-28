@@ -1,3 +1,4 @@
+//00340 - Master-Mind Hints
 #include <iostream>
 #include <vector>
 #include <algorithm>
