@@ -1,3 +1,4 @@
+// 10082 - WERTYU
 #include <iostream>
 #include <string>
 using namespace std;
