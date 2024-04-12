@@ -1,0 +1,44 @@
+//h028. 202001_3 砍樹
+
+#include<bits/stdc++.h>
+using namespace std;
+int n,l,num=0,maxd;
+int c[100005];
+int h[100005];
+int le[100005];
+int main(){
+    ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
+    cin >> n >>l;
+    c[0]=h[0]=0;
+    c[n+1]=h[n+1]=l;
+    for(int x=1;x<=n;x++){cin >> c[x];le[x]=x-1;}
+    for(int x=1;x<=n;x++)cin >> h[x];
+    for(int x=1;x<=n;x++){
+        if((c[x]-h[x]>=c[le[x]]) or (c[x]+h[x]<=c[x+1])){
+            num++;
+            le[x+1]=le[x];
+            maxd=max(maxd,h[x]);
+            while(true){
+                if(le[x+1]>0 && c[le[x+1]]+h[le[x+1]]<=c[x+1]){
+                    num++;
+                    maxd=max(maxd,h[le[x+1]]);
+                    le[x+1]=le[le[x+1]];
+
+                }
+                else{
+                    break;
+                }
+            }
+        }
+    }
+    if(num==0){
+        cout << 0 << endl;
+        cout << 0 << endl;
+    }
+    else{
+        cout << num << endl;
+        cout << maxd << endl;
+    }
+
+    return 0;
+}
